@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import "./App.css"
 import Footer from "./components/footer/Footer"
 import Header from "./components/header/Header"
-import Home from "./components/home/Home"
+import Home from "./pages/Home"
 
 function App() {
   const getMode = () => {
@@ -17,6 +17,7 @@ function App() {
       <div className={dark ? "app" : "light"}>
         <Header dark={dark} setMode={setMode} />
         <Home />
+        <Footer/>
       </div>
     </>
   )

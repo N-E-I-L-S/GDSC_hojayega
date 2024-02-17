@@ -6,13 +6,11 @@ export default function BarChart() {
     const [data, setData] = useState([])
     const [xlabel, setXlabel] = useState([])
     async function getData(){
-        const GetRequest = async () => {
-        const res = await fetch('//API')
+        const res = await fetch('http://127.0.0.1:5000/fi')
         const json = await res.json();
-        console.log(json)
-        setData(json['Feature']);
-        setXlabel(json['Importance'])
-        }
+        console.log(json[0])
+        setData(json[1]);
+        setXlabel(json[0])
     }
     useEffect(()=>{
         getData()
@@ -20,8 +18,8 @@ export default function BarChart() {
     const bardata = {
         series: [
             {
-                name: "Net Profit",
-                data: [...data],
+                name: "Percentage Contribution",
+                data: data,
             },
         ],
         options: {
@@ -54,7 +52,7 @@ export default function BarChart() {
                 show: false,
             },
             xaxis: {
-                categories: [...xlabel],
+                categories: xlabel,
                 axisTicks: {
                     show: false,
                 },

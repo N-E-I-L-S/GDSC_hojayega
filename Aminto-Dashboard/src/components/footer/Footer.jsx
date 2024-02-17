@@ -10,9 +10,7 @@ const Footer = () => {
          
           </div>
           <div className='links flexSB'>
-            <li>About Us</li>
-            <li>Help</li>
-            <li>Contact Us</li>
+            
           </div>
         </div>
       </footer>
