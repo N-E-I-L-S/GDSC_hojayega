@@ -4,10 +4,13 @@ import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
-import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
+import { RepeatPurchaseRate, Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor, TopItemSales, CategorySales, TopItemQuantity, RevenueByOrder, AverageByOrder, MostPopularItems, HourlyTrendPage} from './pages';
 import './App.css';
-
+import YearlyTrendPage from "./pages/Charts/YearlyTrendPage.jsx"
 import { useStateContext } from './contexts/ContextProvider';
+import FeatureImportance from './pages/Charts/FeatureImportance';
+import CustomerTable from './pages/CustomerTable';
+import MBA from './pages/MBA.jsx';
 
 const App = () => {
   const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext();
@@ -66,7 +69,7 @@ const App = () => {
               <Routes>
                 {/* dashboard  */}
                 <Route path="/" element={(<Ecommerce />)} />
-                <Route path="/ecommerce" element={(<Ecommerce />)} />
+                <Route path="/dashboard" element={(<Ecommerce />)} />
 
                 {/* pages  */}
                 {/* <Route path="/orders" element={<Orders />} />
@@ -80,9 +83,20 @@ const App = () => {
                 <Route path="/color-picker" element={<ColorPicker />} /> */}
 
                 {/* charts  */}
-                <Route path="/line" element={<Line />} />
+                {/* <Route path="/line" element={<Line />} /> */}
+                <Route path="/hourlytrendpage" element={<HourlyTrendPage/>} />
+                {/* <Route path="/weeklytrendpage" element={<YearlyTrendPage/>} /> */}
                 <Route path="/area" element={<Area />} />
-                <Route path="/bar" element={<Bar />} />
+                <Route path="/customertable" element={<CustomerTable />} />
+                <Route path="/repeatpurchaserate" element={<RepeatPurchaseRate />} />
+                <Route path="/mostpopularitems" element={<MostPopularItems />} />
+                <Route path="/averagebyorder" element={<AverageByOrder />} />
+                <Route path="/revenuebyorder" element={<RevenueByOrder />} />
+                <Route path="/topitemquantity" element={<TopItemQuantity />} />
+                <Route path="/featureimportance" element={<FeatureImportance />} />
+                <Route path="/topitemsales" element={<TopItemSales />} />
+                <Route path="/categorysales" element={<CategorySales />} />
+                <Route path="/mba" element={<MBA />} />
                 <Route path="/pie" element={<Pie />} />
                 <Route path="/financial" element={<Financial />} />
                 <Route path="/color-mapping" element={<ColorMapping />} />

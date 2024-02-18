@@ -163,12 +163,14 @@ export const barPrimaryXAxis = {
   valueType: 'Category',
   interval: 1,
   majorGridLines: { width: 0 },
+  labelStyle: { color: 'black' }
 };
 export const barPrimaryYAxis = {
   majorGridLines: { width: 0 },
   majorTickLines: { width: 0 },
   lineStyle: { width: 0 },
-  labelStyle: { color: 'transparent' },
+  labelStyle: { color: 'black' },
+
 };
 const areaChartData = [
   [
@@ -245,6 +247,9 @@ const d = [
   {"Featured": "hfi", "Importance": 42},
   {"Featured": "hsi", "Importance": 42}
 ]
+
+
+
 
 // export const barChartData = [
 //     {x:'USA' , y: 46},
@@ -386,19 +391,39 @@ export const FinancialPrimaryYAxis = {
 
 export const LinePrimaryXAxis = {
   valueType: 'DateTime',
-  labelFormat: 'y',
-  intervalType: 'Years',
+  labelFormat: 'mm',
+  intervalType: 'Month',
   edgeLabelPlacement: 'Shift',
   majorGridLines: { width: 0 },
   background: 'white',
 };
 
 export const LinePrimaryYAxis = {
-  labelFormat: '{value}%',
+  labelFormat: '{value}',
   rangePadding: 'None',
-  minimum: 0,
-  maximum: 100,
+  minimum: 50,
+  // maximum: 400,
   interval: 20,
+  lineStyle: { width: 0 },
+  majorTickLines: { width: 0 },
+  minorTickLines: { width: 0 },
+};
+
+export const LinePrimaryXAxishr = {
+  valueType: 'DateTime',
+  labelFormat: 'hhr',
+  intervalType: 'Hours',
+  edgeLabelPlacement: 'Shift',
+  majorGridLines: { width: 0 },
+  background: 'white',
+};
+
+export const LinePrimaryYAxishr = {
+  labelFormat: '{value}',
+  rangePadding: 'None',
+  minimum: 3500,
+  // maximum: 400,
+  interval: 20000,
   lineStyle: { width: 0 },
   majorTickLines: { width: 0 },
   minorTickLines: { width: 0 },
@@ -484,11 +509,55 @@ export const employeesGrid = [
 
 export const links = [
   {
-    title: 'Dashboard',
+    title: '',
     links: [
       {
-        name: 'ecommerce',
+        name: 'dashboard',
         icon: <FiShoppingBag />,
+      },
+      {
+        name: 'FeatureImportance',
+        icon: <AiOutlineBarChart />,
+      },
+      {
+        name: 'TopItemSales',
+        icon: <AiOutlineBarChart />,
+      },
+      {
+        name: 'CategorySales',
+        icon: <AiOutlineBarChart />,
+      },
+      {
+        name: 'TopItemQuantity',
+        icon: <AiOutlineBarChart />,
+      },
+      {
+        name: 'RevenueByOrder',
+        icon: <AiOutlineBarChart />,
+      },
+      {
+        name: 'AverageByOrder',
+        icon: <AiOutlineBarChart />,
+      },
+      {
+        name: 'MostPopularItems',
+        icon: <AiOutlineBarChart />,
+      },
+      {
+        name: 'CustomerTable',
+        icon: <AiOutlineBarChart />,
+      },
+      {
+        name: 'WeeklyTrendPage',
+        icon: <AiOutlineStock />,
+      },
+      {
+        name: 'HourlyTrendPage',
+        icon: <AiOutlineStock />,
+      },
+      {
+        name: 'RepeatPurchaseRate',
+        icon: <AiOutlineBarChart />,
       },
     ],
   },
@@ -531,44 +600,44 @@ export const links = [
   //     },
   //   ],
   // },
-  {
-    title: 'Charts',
-    links: [
-      {
-        name: 'line',
-        icon: <AiOutlineStock />,
-      },
-      {
-        name: 'area',
-        icon: <AiOutlineAreaChart />,
-      },
+  // {
+  //   title: 'Charts',
+  //   links: [
+  //     {
+  //       name: 'line',
+  //       icon: <AiOutlineStock />,
+  //     },
+  //     {
+  //       name: 'area',
+  //       icon: <AiOutlineAreaChart />,
+  //     },
 
-      {
-        name: 'bar',
-        icon: <AiOutlineBarChart />,
-      },
-      {
-        name: 'pie',
-        icon: <FiPieChart />,
-      },
-      {
-        name: 'financial',
-        icon: <RiStockLine />,
-      },
-      {
-        name: 'color-mapping',
-        icon: <BsBarChart />,
-      },
-      {
-        name: 'pyramid',
-        icon: <GiLouvrePyramid />,
-      },
-      {
-        name: 'stacked',
-        icon: <AiOutlineBarChart />,
-      },
-    ],
-  },
+  //     {
+  //       name: 'bar',
+  //       icon: <AiOutlineBarChart />,
+  //     },
+  //     {
+  //       name: 'pie',
+  //       icon: <FiPieChart />,
+  //     },
+  //     {
+  //       name: 'financial',
+  //       icon: <RiStockLine />,
+  //     },
+  //     {
+  //       name: 'color-mapping',
+  //       icon: <BsBarChart />,
+  //     },
+  //     {
+  //       name: 'pyramid',
+  //       icon: <GiLouvrePyramid />,
+  //     },
+  //     {
+  //       name: 'stacked',
+  //       icon: <AiOutlineBarChart />,
+  //     },
+  //   ],
+  // },
 ];
 
 export const cartData = [
@@ -856,6 +925,10 @@ export const themeColors = [
   {
     color: '#FB9678',
     name: 'orange-theme',
+  },
+  {
+    color: '#967259',
+    name: 'coffee-theme',
   },
 ];
 
@@ -3062,25 +3135,25 @@ export const lineChartData = [
     { x: new Date(2010, 0, 1), y: 57 },
     { x: new Date(2011, 0, 1), y: 70 },
   ],
-  [
-    { x: new Date(2005, 0, 1), y: 28 },
-    { x: new Date(2006, 0, 1), y: 44 },
-    { x: new Date(2007, 0, 1), y: 48 },
-    { x: new Date(2008, 0, 1), y: 50 },
-    { x: new Date(2009, 0, 1), y: 66 },
-    { x: new Date(2010, 0, 1), y: 78 },
-    { x: new Date(2011, 0, 1), y: 84 },
-  ],
+  // [
+  //   { x: new Date(2005, 0, 1), y: 28 },
+  //   { x: new Date(2006, 0, 1), y: 44 },
+  //   { x: new Date(2007, 0, 1), y: 48 },
+  //   { x: new Date(2008, 0, 1), y: 50 },
+  //   { x: new Date(2009, 0, 1), y: 66 },
+  //   { x: new Date(2010, 0, 1), y: 78 },
+  //   { x: new Date(2011, 0, 1), y: 84 },
+  // ],
 
-  [
-    { x: new Date(2005, 0, 1), y: 10 },
-    { x: new Date(2006, 0, 1), y: 20 },
-    { x: new Date(2007, 0, 1), y: 30 },
-    { x: new Date(2008, 0, 1), y: 39 },
-    { x: new Date(2009, 0, 1), y: 50 },
-    { x: new Date(2010, 0, 1), y: 70 },
-    { x: new Date(2011, 0, 1), y: 100 },
-  ],
+  // [
+  //   { x: new Date(2005, 0, 1), y: 10 },
+  //   { x: new Date(2006, 0, 1), y: 20 },
+  //   { x: new Date(2007, 0, 1), y: 30 },
+  //   { x: new Date(2008, 0, 1), y: 39 },
+  //   { x: new Date(2009, 0, 1), y: 50 },
+  //   { x: new Date(2010, 0, 1), y: 70 },
+  //   { x: new Date(2011, 0, 1), y: 100 },
+  // ],
 ];
 export const dropdownData = [
   {
@@ -3161,10 +3234,15 @@ export const contextMenuItems = [
 ];
 
 export const ecomPieChartData = [
-  { x: '2018', y: 18, text: '35%' },
-  { x: '2019', y: 18, text: '15%' },
-  { x: '2020', y: 18, text: '25%' },
-  { x: '2021', y: 18, text: '25%' },
+    {x: "Category_Food_Menu", y: 0.27616246362196295, text: 'Category_Food_Menu'},
+    {x: "Category_Cold_Coffee", y: 0.2752511022114232, text: 'Category_Cold_Coffee'},
+    {x: "Qty.", y: 0.20724366270071176, text: 'Qty.'},
+    {x: "Category_Hot_Coffee", y: 0.038310887914619354, text: 'Category_Hot_Coffee'},
+    {x: "Payment_Type_Cash", y: 0.0357593520512258, text: 'Payment_Type_Cash'},
+    {x: "Category_SEASONAL_MENU", y: 0.02983466633276717, text: 'Category_SEASONAL_MENU'},
+    {x: "Category_Hot_Chocolate", y: 0.02666752270146719, text: 'Category_Hot_Chocolate'},
+    {x: "Area_Private_Dining_Area", y: 0.018205042543052413, text: 'Area_Private_Dining_Area'},
+    {x: "Category_Milk", y: 0.016843765249219995, text: 'Category_Milk'},
 ];
 
 export const stackedChartData = [

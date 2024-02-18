@@ -3,11 +3,14 @@ import { BsCurrencyDollar } from 'react-icons/bs';
 import { GoPrimitiveDot } from 'react-icons/go';
 import { IoIosMore } from 'react-icons/io';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
+import { ChartsHeader } from '../components';
 
-import { Stacked, Pie, Button, LineChart, SparkLine } from '../components';
+import { Stacked, Pie, Button, SparkLine } from '../components';
 import { earningData, medicalproBranding, recentTransactions, weeklyStats, dropdownData, SparklineAreaData, ecomPieChartData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 import product9 from '../data/product9.jpg';
+import Card from '../components/Card';
+import { NavLink } from 'react-router-dom';
 
 const DropDown = ({ currentMode }) => (
   <div className="w-28 border-1 border-color px-2 py-1 rounded-md">
@@ -19,9 +22,10 @@ const Ecommerce = () => {
   const { currentColor, currentMode } = useStateContext();
 
   return (
-    <div className="">
-      <div className="flex flex-wrap lg:flex-nowrap justify-center ">
-        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
+    <div className="pt-4">
+      <h2 className="font-bold" style={{ fontSize: "24px", marginBottom: "2rem" }}>Today's Insights !</h2>
+      <div className="flex flex-wrap lg:flex-nowrap justify-center" style={{marginBottom: "8rem", marginTop: "4rem"}} >
+        {/* <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
           <div className="flex justify-between items-center">
             <div>
               <p className="font-bold text-gray-400">Earnings</p>
@@ -43,8 +47,8 @@ const Ecommerce = () => {
               borderRadius="10px"
             />
           </div>
-        </div>
-        <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
+        </div> */}
+        {/* <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
           {earningData.map((item) => (
             <div key={item.title} className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 pt-9 rounded-2xl ">
               <button
@@ -63,25 +67,46 @@ const Ecommerce = () => {
               <p className="text-sm text-gray-400  mt-1">{item.title}</p>
             </div>
           ))}
+        </div> */}
+        <NavLink to="/mba">
+          <Card />
+        </NavLink>
+        <div className="">
+          <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-fit rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
+            <div className="flex flex-col justify-between items-center">
+              <div>
+                <p className="font-bold text-gray-400" style={{ textAlign: "center" }}>Least Sales at : <span style={{ color: "red" }}>6 a.m.</span></p>
+                <p className="font-bold text-gray-400" style={{ textAlign: "center" }}>Maximum Sales at : <span style={{ color: "green" }}>2 a.m.</span></p>
+                <p className="font-bold text-gray-400" style={{ textAlign: "center", color: "orange" }}> Suggested Bonus Hours from 7 a.m. to 8 a.m.</p>
+              </div>
+              <NavLink to='/hourlytrendpage'>
+                <button
+                  type="button"
+                  className="mt-4 border text-l opacity-0.9 text-black hover:drop-shadow-xl rounded-full  p-4"
+                >
+                  Check Detailed Analysis
+                </button>
+              </NavLink>
+            </div>
+          </div>
         </div>
+
       </div>
 
-      <div className="flex gap-10 flex-wrap justify-center">
+      {/* <div className="flex gap-10 flex-wrap justify-center">
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780  ">
           <div className="flex justify-between">
             <p className="font-semibold text-xl">Revenue Updates</p>
             <div className="flex items-center gap-4">
               <p className="flex items-center gap-2 text-gray-600 hover:drop-shadow-xl">
-                <span>
-                  <GoPrimitiveDot />
-                </span>
+                <span> */}
+      {/* <GoPrimitiveDot /> */}
+      {/* </span>
                 <span>Expense</span>
               </p>
               <p className="flex items-center gap-2 text-green-400 hover:drop-shadow-xl">
-                <span>
-                  <GoPrimitiveDot />
-                </span>
-                <span>Budget</span>
+                
+                
               </p>
             </div>
           </div>
@@ -102,9 +127,9 @@ const Ecommerce = () => {
                 <p className="text-gray-500 mt-1">Expense</p>
               </div>
 
-              <div className="mt-5">
-                <SparkLine currentColor={currentColor} id="line-sparkLine" type="Line" height="80px" width="250px" data={SparklineAreaData} color={currentColor} />
-              </div>
+              <div className="mt-5"> */}
+      {/* <SparkLine currentColor={currentColor} id="line-sparkLine" type="Line" height="80px" width="250px" data={SparklineAreaData} color={currentColor} /> */}
+      {/* </div>
               <div className="mt-10">
                 <Button
                   color="white"
@@ -114,9 +139,9 @@ const Ecommerce = () => {
                 />
               </div>
             </div>
-            <div>
-              <Stacked currentMode={currentMode} width="320px" height="360px" />
-            </div>
+            <div> */}
+      {/* <Stacked currentMode={currentMode} width="320px" height="360px" /> */}
+      {/* </div>
           </div>
         </div>
         <div>
@@ -136,25 +161,26 @@ const Ecommerce = () => {
             <div className="mt-4">
               <SparkLine currentColor={currentColor} id="column-sparkLine" height="100px" type="Column" data={SparklineAreaData} width="320" color="rgb(242, 252, 253)" />
             </div>
-          </div>
-
-          <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-400 p-8 m-3 flex justify-center items-center gap-10">
+          </div> */}
+      <div className="mt-8 ">
+        <ChartsHeader title={"Factor Distribution"} />
+        <Pie id="pie-chart" data={ecomPieChartData} legendVisiblity={false} />
+      </div>
+      {/* <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-400 p-8 m-3 flex justify-center items-center gap-10">
             <div>
               <p className="text-2xl font-semibold ">$43,246</p>
               <p className="text-gray-400">Yearly sales</p>
             </div>
 
-            <div className="w-40">
-              <Pie id="pie-chart" data={ecomPieChartData} legendVisiblity={false} height="160px" />
-            </div>
+            
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="flex gap-10 m-4 flex-wrap justify-center">
+      {/* <div className="flex gap-10 m-4 flex-wrap justify-center">
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl">
           <div className="flex justify-between items-center gap-2">
-            <p className="text-xl font-semibold">Recent Transactions</p>
+            <p className="text-xl font-semibold">Revenue</p>
             <DropDown currentMode={currentMode} />
           </div>
           <div className="mt-10 w-72 md:w-400">
@@ -202,9 +228,9 @@ const Ecommerce = () => {
             <LineChart />
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="flex flex-wrap justify-center">
+      {/* <div className="flex flex-wrap justify-center">
         <div className="md:w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
           <div className="flex justify-between">
             <p className="text-xl font-semibold">Weekly Stats</p>
@@ -325,7 +351,7 @@ const Ecommerce = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
